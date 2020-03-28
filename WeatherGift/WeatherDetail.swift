@@ -8,29 +8,52 @@
 
 import Foundation
 
+private let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEEE"
+    return dateFormatter
+}()
+
+struct DailyWeatherData: Codable {
+    var dailyIcon: String
+    var dailyWeekday: String
+    var dailySummary: String
+    var dailyHigh: Int
+    var dailyLow: Int
+}
+
 class WeatherDetail: WeatherLocation {
     
-    struct Result: Codable {
+    private struct Result: Codable {
         var timezone: String
         var currently: Currently
         var daily: Daily
     }
-    struct Currently: Codable {
+    private struct Currently: Codable {
         var temperature: Double
         var time: TimeInterval
     }
     
-    struct Daily: Codable {
+    private struct Daily: Codable {
         var summary: String
         var icon: String
+        var data: [DailyData]
     }
     
+    private struct DailyData: Codable {
+        var icon: String
+        var time: TimeInterval
+        var summary: String
+        var temperatureHigh: Double
+        var temperatureLow: Double
+    }
     
     var timezone = ""
     var temperature = 0
     var summary = ""
     var dailyIcon = ""
     var currentTime = 0.0
+    var dailyWeatherData: [DailyWeatherData] = []
     
     func getData(completed: @escaping () -> () ) {
         let coordinates = "\(latitude),\(longitude)"
@@ -63,6 +86,18 @@ class WeatherDetail: WeatherLocation {
                 self.temperature = Int(result.currently.temperature.rounded())
                 self.summary = result.daily.summary
                 self.dailyIcon = result.daily.icon
+                for index in 0..<result.daily.data.count {
+                    let weekdayDate = Date(timeIntervalSince1970: result.daily.data[index].time)
+                    dateFormatter.timeZone = TimeZone(identifier: result.timezone)
+                    let dailyWeekday = dateFormatter.string(from: weekdayDate)
+                    let dailyIcon = result.daily.data[index].icon
+                    let dailySummary = result.daily.data[index].summary
+                    let dailyHigh = Int(result.daily.data[index].temperatureHigh.rounded())
+                    let dailyLow = Int(result.daily.data[index].temperatureLow.rounded())
+                    let dailyWeather = DailyWeatherData(dailyIcon: dailyIcon, dailyWeekday: dailyWeekday, dailySummary: dailySummary, dailyHigh: dailyHigh, dailyLow: dailyLow)
+                    self.dailyWeatherData.append(dailyWeather)
+                    print("Day: \(dailyWeather.dailyWeekday) High: \(dailyWeather.dailyHigh) Low: \(dailyWeather.dailyLow)")
+                }
             } catch {
                 print("Error \(error.localizedDescription)")
             }
