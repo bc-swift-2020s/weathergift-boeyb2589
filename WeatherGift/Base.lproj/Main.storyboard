@@ -92,14 +92,73 @@
                                     <constraint firstAttribute="height" constant="225" id="tqs-79-wTm"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MqO-AV-jJE">
+                                <rect key="frame" x="0.0" y="225" width="320" height="299"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="80" id="1sW-qt-Prc" customClass="DailyTableViewCell" customModule="WeatherGift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1sW-qt-Prc" id="Zg3-OI-bOk">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rain" translatesAutoresizingMaskIntoConstraints="NO" id="mkv-QI-5Ct">
+                                                    <rect key="frame" x="8" y="5" width="70" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyR-jm-cyZ">
+                                                    <rect key="frame" x="86" y="11" width="219" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="188°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-xY-lBQ">
+                                                    <rect key="frame" x="247" y="11" width="58" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="188°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAN-qq-tG8">
+                                                    <rect key="frame" x="247" y="38" width="58" height="37"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Rain Rain go away" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNd-X6-6sl">
+                                                    <rect key="frame" x="81" y="35" width="229" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dailyHighLabel" destination="kvI-xY-lBQ" id="tPv-6g-Ycc"/>
+                                            <outlet property="dailyImageView" destination="mkv-QI-5Ct" id="3aw-ds-j7b"/>
+                                            <outlet property="dailyLowLabel" destination="EAN-qq-tG8" id="SrG-JI-h5z"/>
+                                            <outlet property="dailySummaryView" destination="lNd-X6-6sl" id="g3B-yb-NPz"/>
+                                            <outlet property="dailyWeekdayLabel" destination="iyR-jm-cyZ" id="gic-XS-m4v"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="aed-Pa-WiT" firstAttribute="trailing" secondItem="xrp-nP-qYP" secondAttribute="trailing" id="1UG-Fe-jJ5"/>
                             <constraint firstItem="xrp-nP-qYP" firstAttribute="trailing" secondItem="xSq-at-Ms2" secondAttribute="trailing" id="CtY-KZ-oGQ"/>
+                            <constraint firstItem="MqO-AV-jJE" firstAttribute="leading" secondItem="xrp-nP-qYP" secondAttribute="leading" id="SCT-E0-QRf"/>
                             <constraint firstItem="xSq-at-Ms2" firstAttribute="top" secondItem="xrp-nP-qYP" secondAttribute="top" id="SL2-Cr-xxD"/>
                             <constraint firstItem="xSq-at-Ms2" firstAttribute="leading" secondItem="xrp-nP-qYP" secondAttribute="leading" id="VLM-MI-p9s"/>
+                            <constraint firstItem="xrp-nP-qYP" firstAttribute="trailing" secondItem="MqO-AV-jJE" secondAttribute="trailing" id="Vfe-QO-LaT"/>
                             <constraint firstItem="aed-Pa-WiT" firstAttribute="bottom" secondItem="xrp-nP-qYP" secondAttribute="bottom" id="VtF-v0-hE7"/>
+                            <constraint firstItem="aed-Pa-WiT" firstAttribute="top" secondItem="MqO-AV-jJE" secondAttribute="bottom" symbolic="YES" id="jYJ-XO-iQW"/>
+                            <constraint firstItem="MqO-AV-jJE" firstAttribute="top" secondItem="xSq-at-Ms2" secondAttribute="bottom" id="ngs-R6-yWr"/>
                             <constraint firstItem="aed-Pa-WiT" firstAttribute="leading" secondItem="xrp-nP-qYP" secondAttribute="leading" id="ozZ-3i-sZx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xrp-nP-qYP"/>
@@ -110,6 +169,7 @@
                         <outlet property="pageControl" destination="jwR-Ai-yWT" id="sbX-uA-iv2"/>
                         <outlet property="placeLabel" destination="TU2-wm-5Ut" id="l3e-YY-MfW"/>
                         <outlet property="summaryLabel" destination="YNc-F5-jIm" id="Olg-S1-7aX"/>
+                        <outlet property="tableView" destination="MqO-AV-jJE" id="kn1-EJ-Prw"/>
                         <outlet property="temperatureLabel" destination="zE4-QH-n2N" id="dGM-zl-XBi"/>
                     </connections>
                 </viewController>
@@ -204,5 +264,6 @@
     </scenes>
     <resources>
         <image name="list.bullet" catalog="system" width="64" height="44"/>
+        <image name="rain" width="300" height="168"/>
     </resources>
 </document>

@@ -19,6 +19,7 @@
 		CA2B807324157CB700563E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA2B807124157CB700563E6D /* LaunchScreen.storyboard */; };
 		CA2B807B24157CC900563E6D /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2B807A24157CC900563E6D /* WeatherLocation.swift */; };
 		CA434B9D2426D3670054A697 /* APIkeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA434B9C2426D3670054A697 /* APIkeys.swift */; };
+		CAF3F13D242FE669000A4EC8 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3F13C242FE669000A4EC8 /* DailyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CA2B807424157CB700563E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA2B807A24157CC900563E6D /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
 		CA434B9C2426D3670054A697 /* APIkeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkeys.swift; sourceTree = "<group>"; };
+		CAF3F13C242FE669000A4EC8 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 		D14D6C041832D3A5A9277672 /* Pods-WeatherGift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherGift.release.xcconfig"; path = "Target Support Files/Pods-WeatherGift/Pods-WeatherGift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 				CA036A962426ECD200A84470 /* PageViewController.swift */,
 				CA036A942426E29400A84470 /* LocationDetailViewController.swift */,
 				CA2B806A24157CB500563E6D /* LocationListViewController.swift */,
+				CAF3F13C242FE669000A4EC8 /* DailyTableViewCell.swift */,
 				CA2B806C24157CB500563E6D /* Main.storyboard */,
 				CA2B806F24157CB700563E6D /* Assets.xcassets */,
 				CA2B807124157CB700563E6D /* LaunchScreen.storyboard */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAF3F13D242FE669000A4EC8 /* DailyTableViewCell.swift in Sources */,
 				CA2B806B24157CB500563E6D /* LocationListViewController.swift in Sources */,
 				CA036A972426ECD200A84470 /* PageViewController.swift in Sources */,
 				CA2B807B24157CC900563E6D /* WeatherLocation.swift in Sources */,
