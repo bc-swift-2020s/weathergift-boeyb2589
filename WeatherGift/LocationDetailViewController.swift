@@ -8,6 +8,12 @@
 
 import UIKit
 
+private let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEEE, MMM d"
+    return dateFormatter
+}()
+
 class LocationDetailViewController: UIViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -41,8 +47,9 @@ class LocationDetailViewController: UIViewController {
         pageControl.currentPage = locationIndex
         weatherDetail.getData {
             DispatchQueue.main.async {
-            
-                self.dateLabel.text = weatherDetail.timezone
+                dateFormatter.timeZone = TimeZone(identifier: weatherDetail.timezone)
+                let useableDate = Date(timeIntervalSince1970: weatherDetail.currentTime)
+                self.dateLabel.text = dateFormatter.string(from: useableDate)
             self.placeLabel.text = weatherDetail.name
                 self.temperatureLabel.text = "\(weatherDetail.temperature)°"
                 self.summaryLabel.text = weatherDetail.summary
