@@ -161,7 +161,7 @@ extension LocationDetailViewController: CLLocationManagerDelegate {
             self.oneButtonAlert(title: "Location services denied", message: "IT may be that parental controls are restricting location usein this app")
         case .denied:
             //Todo
-            break
+            showAlertToPrivacySettings(title: "Location services denied", message: "It may be that parental controls are restricting location use in this app")
         case .authorizedAlways:
             locationManager.requestLocation()
         case .authorizedWhenInUse:
@@ -169,6 +169,21 @@ extension LocationDetailViewController: CLLocationManagerDelegate {
         @unknown default:
             print("Unknown case of status")
         }
+    }
+    func showAlertToPrivacySettings(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            print("Error")
+            return
+        }
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) in
+            UIApplication.shared.open(settingsURL, options:
+                [:], completionHandler: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //Todo: Deal with change in location
@@ -195,6 +210,6 @@ extension LocationDetailViewController: CLLocationManagerDelegate {
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        Print("Error")
+        print("Error")
     }
 }
